@@ -56,7 +56,11 @@ public class IngredienteController implements Serializable{
         // TODO codificar el metodo guardar
         // guardar el nuevo ingrediente
         // setear en null el ingrediente seleccionado
-        return "listaIngrediente";
+        Ingrediente tmp1 = this.servicioIngrediente.guardar(ingredienteSeleccionado);
+        this.listaIngredientes.add(tmp1);
+        this.ingredienteSeleccionado = null;
+        return null;
+        //return "listaIngrediente";
     }
 
     public String nuevo(){
