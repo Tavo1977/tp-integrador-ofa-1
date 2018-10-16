@@ -25,6 +25,19 @@
             </div>
 
             <div class="p-col-12" >
+                    <p:outputLabel for="fechaDesde" value="Fecha Desde " />
+                    <p:inputMask id="fechaDesde"  converter="#{Date}" value="#{recetaController.fechaDesde}" mask="99/99/9999" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputMask>                    
+            </div>
+            <div class="p-col-12" >
+                    <p:outputLabel for="fechaHasta" value="Fecha Hasta " />
+                    <p:inputMask id="fechaHasta"  converter="#{Date}" value="#{recetaController.fechaHasta}" mask="99/99/9999" >
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </p:inputMask>                    
+            </div>            
+            
+            <div class="p-col-12" >
                 <p:commandButton value="Buscar" action="#{recetaController.buscarRecetas}" update="frmListaRecetas2"></p:commandButton>
             </div>                
         </div>
