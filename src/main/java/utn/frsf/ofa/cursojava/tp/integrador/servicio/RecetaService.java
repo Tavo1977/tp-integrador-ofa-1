@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import utn.frsf.ofa.cursojava.tp.integrador.logica.RecetaLogica;
+import utn.frsf.ofa.cursojava.tp.integrador.modelo.Autor;
 import utn.frsf.ofa.cursojava.tp.integrador.modelo.Ingrediente;
 import utn.frsf.ofa.cursojava.tp.integrador.modelo.Receta;
 
@@ -50,8 +51,11 @@ public class RecetaService {
                 .getResultList();
     }
     
-    public List<Receta> busquedaAvanzada(AutorService a, Ingrediente i, Double precioMin, Double precioMax,Date fMin,Date fMax){        
-        return null;
+   // public List<Receta> busquedaAvanzada(AutorService a, Ingrediente i, Double precioMin, Double precioMax,Date fMin,Date fMax){    
+    public List<Receta> busquedaAvanzada(Autor a, Ingrediente i, Double precioMin, Double precioMax,Date fMin,Date fMax){ 
+       // return em.createQuery("SELECT r FROM Receta r WHERE r.id = 2").getResultList();
+        return em.createQuery("SELECT r FROM Receta r WHERE r.precio > :PMINIMO ")
+            .setParameter("PMINIMO", precioMin).getResultList();
     }
 
 }

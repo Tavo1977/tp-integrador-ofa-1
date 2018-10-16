@@ -13,7 +13,7 @@ import utn.frsf.ofa.cursojava.tp.integrador.modelo.Ingrediente;
 import utn.frsf.ofa.cursojava.tp.integrador.modelo.Receta;
 import utn.frsf.ofa.cursojava.tp.integrador.servicio.IngredienteService;
 import utn.frsf.ofa.cursojava.tp.integrador.servicio.RecetaService;
-
+import java.util.Date;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -40,6 +40,16 @@ public class RecetaController implements Serializable {
     private List<Receta> listaRecetas;
 
     private DualListModel<Ingrediente> ingredientesDisponibles;
+    
+    
+    // BUSQUEDA
+    private Double precioMinimo= 1.0;
+    private Double precioMaximo= 1000.0;
+    private Autor autorBuscado;
+    private Ingrediente ingredienteBuscado;
+    private Date fechaDesde;
+    private Date fechaHasta;
+    private int tipoBusqueda;
     
     public Receta getRecetaSeleccionada() {
         return recetaSeleccionada;
@@ -103,5 +113,69 @@ public class RecetaController implements Serializable {
         this.autorSeleccionado = autorSeleccionado;
     }
 
+    
+    //Setters y Getters para las variables de busqueda
+    public void setIngredienteBuscado(Ingrediente ingredienteBuscado) {    
+        this.ingredienteBuscado = ingredienteBuscado;
+    }
+    
+    public Ingrediente getIngredienteBuscado() {
+        return ingredienteBuscado;
+    }
+    
+    
+    public Double getPrecioMinimo(){    
+        return precioMinimo;
+    }
+
+    public void setPrecioMinimo(Double precioMinimo) {
+        this.precioMinimo = precioMinimo;
+    }
+
+    public Double getPrecioMaximo() {
+        return precioMaximo;
+    }
+
+    public void setPrecioMaximo(Double precioMaximo) {
+        this.precioMaximo = precioMaximo;
+    }
+
+    public Autor getAutorBuscado() {
+        return autorBuscado;
+    }
+
+    public void setAutorBuscado(Autor autorBuscado) {
+        this.autorBuscado = autorBuscado;
+    }
+
+    public Date getFechaDesde() {
+        return fechaDesde;
+    }
+
+    public void setFechaDesde(Date fechaDesde) {
+        this.fechaDesde = fechaDesde;
+    }
+
+    public Date getFechaHasta() {
+        return fechaHasta;
+    }
+
+    public void setFechaHasta(Date fechaHasta) {
+        this.fechaHasta = fechaHasta;
+    }
+
+    public int getTipoBusqueda() {
+        return tipoBusqueda;
+    }
+
+    public void setTipoBusqueda(int tipoBusqueda) {
+        this.tipoBusqueda = tipoBusqueda;
+    }
+    
+     public String buscarRecetas() {
+         //System.out.println("Ingrediente:" + this.ingredienteBuscado.getId().toString() +"-"+ this.ingredienteBuscado.getDescripcion());
+        this.listaRecetas=this.recetaSrv.busquedaAvanzada(autorBuscado, ingredienteBuscado, precioMinimo, precioMaximo, fechaDesde, fechaDesde);
+        return "buscarReceta";
+    }
     
 }
