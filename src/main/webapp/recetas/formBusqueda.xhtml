@@ -7,17 +7,24 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <h:form id="frmDatosRecetas">
+        <p:growl id="growl" showDetail="true" sticky="true" />  
+        <h:messages showDetail="true"></h:messages>
+            
         <div class="p-grid">
-            <div class="p-col-12" >
+            <div class="p-col-3" >
                 <h2>Búsqueda de Receta</h2>
             </div>
-            <div class="p-col-3" >
-                    <p:outputLabel for="precioMinimo" value="Precio Minimo" />
+            <div class="p-col-12" >
+                    <p:outputLabel for="precioMinimo" value="Precio Minimo " />
+                     <p:inputText id="precioMinimo" converter="#{Double}" value="#{recetaController.precioMinimo}" />
             </div>
-            <div class="p-col-3" >
-                <p:inputText id="precioMinimo" converter="#{Double}" value="#{recetaController.precioMinimo}" />
-            </div>                   
-            <div class="p-col-3" >
+       
+            <div class="p-col-12" >
+                    <p:outputLabel for="precioMaximo" value="Precio Maximo " />
+                    <p:inputText id="precioMaximo"  converter="#{Double}" value="#{recetaController.precioMaximo}" />
+            </div>
+
+            <div class="p-col-12" >
                 <p:commandButton value="Buscar" action="#{recetaController.buscarRecetas}" update="frmListaRecetas2"></p:commandButton>
             </div>                
         </div>
