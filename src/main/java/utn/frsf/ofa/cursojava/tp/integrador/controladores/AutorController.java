@@ -28,11 +28,21 @@ public class AutorController implements Serializable{
     
     private Autor autorSeleccionado;
     private  List<Autor> listaAutores;
+    private  List<Autor> listaAutores2;
 
+    public List<Autor> getListaAutores2() {
+        return listaAutores2;
+    }
+
+    public void setListaAutores2(List<Autor> listaAutores2) {
+        this.listaAutores2 = listaAutores2;
+    }
+    
     @PostConstruct
     public void init(){
         this.autorSeleccionado = null;
         this.listaAutores = servicioAutores.listar();
+        this.listaAutores = servicioAutores.listar2();
     }
     
     public Autor getAutorSeleccionado() {

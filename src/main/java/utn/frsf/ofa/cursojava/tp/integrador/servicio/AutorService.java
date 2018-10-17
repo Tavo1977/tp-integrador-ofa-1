@@ -33,4 +33,10 @@ public class AutorService {
     public List<Autor> listar(){
         return em.createQuery("SELECT a FROM Autor a").getResultList();
     }
+    
+        public List<Autor> listar2(){
+        //List<Autor> autores2;   
+        //autores2 = em.createQuery("SELECT a FROM Autor a").getResultList();
+        return em.createQuery("SELECT a FROM Autor a").getResultList();
+    }
 }

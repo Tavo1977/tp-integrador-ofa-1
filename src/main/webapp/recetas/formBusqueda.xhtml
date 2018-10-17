@@ -42,8 +42,8 @@
             </div>
             <div class="p-col-12" >
                 <p:selectOneMenu id="autor" value="#{recetaController.autorBuscado}" panelStyle="width:220px"
-                                 effect="fade" style="width:200px" converter="autorConverter">
-                    <f:selectItems value="#{autorController.listaAutores}" var="unAutor" itemLabel="#{unAutor.nombre}" itemValue="#{unAutor}" />
+                                 effect="fade" style="width:200px" converter="autorConverter">                    
+                     <f:selectItems value="#{autorController.listaAutores}" var="unAutor" itemLabel="#{unAutor.nombre}" itemValue="#{unAutor}" />
                 </p:selectOneMenu>                
             </div>
             

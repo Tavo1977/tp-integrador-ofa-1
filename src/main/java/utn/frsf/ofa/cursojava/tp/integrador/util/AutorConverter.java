@@ -23,13 +23,13 @@ public class AutorConverter  implements Converter {
         Autor i = new Autor();
         i.setId(Integer.valueOf(datos[0]));
         i.setNombre(datos[1]);
-        System.out.println("en objeto "+i.toString()+ " < "+string+">");
+        //System.out.println("en objeto "+i.toString()+ " < "+string+">");
         return i;
     }
 
     @Override
     public String getAsString(FacesContext fc, UIComponent uic, Object t) {
-        System.out.println("CONVERTIR autor "+t.toString());
+        //System.out.println("CONVERTIR autor "+t.toString());
         Autor a = (Autor) t;
         return a.getId()+";"+a.getNombre();
     }
