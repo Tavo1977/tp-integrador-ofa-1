@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns="http://www.w3.org/1999/xhtml"                
+                template="./template01.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="top">
+        Lista de pedidos
+    </ui:define>
+
+    <ui:define name="content">
+        <h:form id="frmListaPedidos">
+            <p:dataTable id="tblListaPedidos" var="unaPedido" value="#{pedidoController.listaPedidos}" selection="#{pedidoController.pedidoSeleccionada}" rowKey="#{unaPedido.id}">
+                <f:facet name="header">
+                    Lista de Pedidos 
+                </f:facet>
+                <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                <p:column headerText="Id">
+                    <h:outputText value="#{unaPedido.id}" />
+                </p:column>
+                <p:column headerText="Dirección">
+                    <h:outputText value="#{unaPedido.direccionEnvio}" />
+                </p:column>         
+                <p:column headerText="Fecha">
+                    <h:outputText value="#{unaPedido.fechaPedido}" />
+                </p:column>                  
+                <f:facet name="footer">
+                    <p:commandButton process="tblListaPedidos" action="altaPedido.xhtml" icon="ui-icon-search" value="Seleccionar" />
+                </f:facet>
+            </p:dataTable>
+        </h:form>   
+    </ui:define>
+
+</ui:composition>

@@ -38,7 +38,6 @@ public class RecetaController implements Serializable {
     private Receta recetaSeleccionada;
     private Autor autorSeleccionado;
     private List<Receta> listaRecetas;
-
     private DualListModel<Ingrediente> ingredientesDisponibles;
     
     
@@ -114,7 +113,7 @@ public class RecetaController implements Serializable {
     }
 
     
-    //Setters y Getters para las variables de busqueda
+    //pantalla busqueda avanzada
     public void setIngredienteBuscado(Ingrediente ingredienteBuscado) {    
         this.ingredienteBuscado = ingredienteBuscado;
     }
@@ -174,7 +173,7 @@ public class RecetaController implements Serializable {
     
      public String buscarRecetas() {        
         this.listaRecetas=this.recetaSrv.busquedaAvanzada(autorBuscado, ingredienteBuscado, precioMinimo, precioMaximo, fechaDesde, fechaHasta);
-        return null;
+        return "buscarReceta";
     }
     
 }
