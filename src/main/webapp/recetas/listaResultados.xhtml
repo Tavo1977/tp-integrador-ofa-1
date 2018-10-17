@@ -7,7 +7,7 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core">
 
         <h:form id="frmListaRecetas2">
-            <p:dataTable id="tblListaRecetas" var="unaReceta" value="#{recetaController.listaRecetas}" selection="#{recetaController.recetaSeleccionada}" rowKey="#{unaReceta.id}">
+            <p:dataTable id="tblListaRecetas2" var="unaReceta" value="#{recetaController.listaRecetas}" selection="#{recetaController.recetaSeleccionada}" rowKey="#{unaReceta.id}">
                 <f:facet name="header">
                     Lista de recetas
                 </f:facet>
@@ -28,7 +28,7 @@
                     <h:outputText value="#{unaReceta.autor.nombre}" />
                 </p:column>            
                 <f:facet name="footer">
-                    <p:commandButton process="tblListaRecetas" action="altaReceta.xhtml" icon="ui-icon-search" value="Seleccionar" />
+                    <p:commandButton process="tblListaRecetas2" action="altaReceta.xhtml" icon="ui-icon-search" value="Seleccionar" />
                 </f:facet>
             </p:dataTable>
         </h:form>

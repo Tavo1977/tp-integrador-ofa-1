@@ -42,9 +42,9 @@ public class RecetaController implements Serializable {
     private DualListModel<Ingrediente> ingredientesDisponibles;
     
     
-    // BUSQUEDA
+    // variables form de busqueda
     private Double precioMinimo= 1.0;
-    private Double precioMaximo= 1000.0;
+    private Double precioMaximo= 10000.0;
     private Autor autorBuscado;
     private Ingrediente ingredienteBuscado;
     private Date fechaDesde  = new java.util.Date(1,1,1);
@@ -172,10 +172,9 @@ public class RecetaController implements Serializable {
         this.tipoBusqueda = tipoBusqueda;
     }
     
-     public String buscarRecetas() {
-         //System.out.println("Ingrediente:" + this.ingredienteBuscado.getId().toString() +"-"+ this.ingredienteBuscado.getDescripcion());
+     public String buscarRecetas() {        
         this.listaRecetas=this.recetaSrv.busquedaAvanzada(autorBuscado, ingredienteBuscado, precioMinimo, precioMaximo, fechaDesde, fechaHasta);
-        return "buscarReceta";
+        return null;
     }
     
 }

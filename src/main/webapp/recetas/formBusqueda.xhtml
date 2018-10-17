@@ -47,7 +47,16 @@
                 </p:selectOneMenu>                
             </div>
             
-            
+            <div class="p-col-12" >
+                <p:outputLabel for="ingredientes1" value="Ingredientes:" />
+            </div>
+            <div class="p-col-12" >
+                <p:selectOneMenu id="ingredientes1" value="#{recetaController.ingredienteBuscado}" panelStyle="width:220px"
+                                 effect="fade" style="width:200px" converter="ingredienteConverter">
+                    <f:selectItems value="#{ingredienteController.listaIngredientes}" var="unIngrediente" itemLabel="#{unIngrediente.descripcion}" itemValue="#{unIngrediente}" />
+                </p:selectOneMenu>                
+            </div>
+                           
             
             <div class="p-col-12" >
                 <p:commandButton value="Buscar" action="#{recetaController.buscarRecetas}" update="frmListaRecetas2"></p:commandButton>
