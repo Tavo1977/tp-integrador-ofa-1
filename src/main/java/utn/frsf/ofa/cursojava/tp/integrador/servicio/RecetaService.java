@@ -52,16 +52,31 @@ public class RecetaService {
     }
     
      
-    public List<Receta> busquedaAvanzada(Autor aut, Ingrediente ing, Double precioMin, Double precioMax,Date fMinima,Date fMaxima){ 
-            return em.createQuery("SELECT r FROM Receta r JOIN r.ingredientes i WHERE r.precio >= :PMINIMO and r.precio <= :PMAXIMO and r.fechaCreacion >= :PFMIN and r.fechaCreacion <= :PFMAX and (r.autor = :PAUTOR or :PAUTOR is null) AND (i.id = :PINGRE or :PINGRE is null)")
-            //return em.createQuery("SELECT r FROM Receta r  WHERE r.precio >= :PMINIMO and r.precio <= :PMAXIMO and r.fechaCreacion >= :PFMIN and r.fechaCreacion <= :PFMAX and r.autor = :PAUTOR")
-            .setParameter("PMINIMO", precioMin)
-            .setParameter("PMAXIMO", precioMax)
-            .setParameter("PFMIN", fMinima)
-            .setParameter("PFMAX", fMaxima)
-            .setParameter("PAUTOR", aut)
-            .setParameter("PINGRE", ing.getId())    
-            .getResultList();
+    public List<Receta> busquedaAvanzada(Autor aut, Ingrediente ing, Double precioMin, Double precioMax,Date fMinima,Date fMaxima, String todaut, String toding){ 
+            //return em.createQuery("SELECT r FROM Receta r JOIN r.ingredientes i WHERE r.precio >= :PMINIMO and r.precio <= :PMAXIMO and r.fechaCreacion >= :PFMIN and r.fechaCreacion <= :PFMAX and (r.autor = :PAUTOR or :PTODAUT <> 'SI') AND (i.id = :PINGRE or :PTODING <> 'SI')")
+            
+//return em.createQuery("SELECT r FROM Receta r  WHERE r.precio >= :PMINIMO and r.precio <= :PMAXIMO and r.fechaCreacion >= :PFMIN and r.fechaCreacion <= :PFMAX and r.autor = :PAUTOR")
+            if ("SI".equals(toding)){
+                return em.createQuery("SELECT r FROM Receta r JOIN r.ingredientes i WHERE r.precio >= :PMINIMO and r.precio <= :PMAXIMO and r.fechaCreacion >= :PFMIN and r.fechaCreacion <= :PFMAX and (r.autor = :PAUTOR or :PTODAUT <> 'SI') AND (i.id = :PINGRE)")
+                .setParameter("PMINIMO", precioMin)
+                .setParameter("PMAXIMO", precioMax)
+                .setParameter("PFMIN", fMinima)
+                .setParameter("PFMAX", fMaxima)
+                .setParameter("PAUTOR", aut)
+                .setParameter("PINGRE", ing.getId())    
+                .setParameter("PTODAUT", todaut) 
+                //.setParameter("PTODING", toding)         
+                .getResultList();                         
+            } else{
+                 return em.createQuery("SELECT r FROM Receta r  WHERE r.precio >= :PMINIMO and r.precio <= :PMAXIMO and r.fechaCreacion >= :PFMIN and r.fechaCreacion <= :PFMAX and (r.autor = :PAUTOR or :PTODAUT <> 'SI')")
+                .setParameter("PMINIMO", precioMin)
+                .setParameter("PMAXIMO", precioMax)
+                .setParameter("PFMIN", fMinima)
+                .setParameter("PFMAX", fMaxima)
+                .setParameter("PAUTOR", aut)                   
+                .setParameter("PTODAUT", todaut)    
+                .getResultList(); 
+            }        
     }
 
 }

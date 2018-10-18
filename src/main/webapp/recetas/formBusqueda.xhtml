@@ -48,6 +48,18 @@
             </div>
             
             <div class="p-col-12" >
+                <p:outputLabel for="todautor" value="Filtra Autor:" />
+            </div>
+            <div class="p-col-12" >
+                <p:selectOneMenu id="todautor" value="#{recetaController.todautorBuscado}" panelStyle="width:220px"
+                                 effect="fade" style="width:200px" >                    
+                    <f:selectItem itemValue="SI" itemLabel="SI" />
+                    <f:selectItem itemValue="NO" itemLabel="NO" />
+                </p:selectOneMenu>                
+            </div>
+            
+            
+            <div class="p-col-12" >
                 <p:outputLabel for="ingredientes1" value="Ingredientes:" />
             </div>
             <div class="p-col-12" >
@@ -57,6 +69,17 @@
                 </p:selectOneMenu>                
             </div>
                            
+             <div class="p-col-12" >
+                <p:outputLabel for="toing" value="Filtra Ingredientes:" />
+            </div>
+            <div class="p-col-12" >
+                <p:selectOneMenu id="toing" value="#{recetaController.todingredienteBuscado}" panelStyle="width:220px"
+                                 effect="fade" style="width:200px" >                    
+                    <f:selectItem itemValue="SI" itemLabel="SI" />
+                    <f:selectItem itemValue="NO" itemLabel="NO" />
+                </p:selectOneMenu>                
+            </div>
+            
             
             <div class="p-col-12" >
                 <p:commandButton value="Buscar" action="#{recetaController.buscarRecetas}" update="frmListaRecetas2"></p:commandButton>

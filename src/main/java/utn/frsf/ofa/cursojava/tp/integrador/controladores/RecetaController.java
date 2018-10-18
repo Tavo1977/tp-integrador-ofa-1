@@ -49,6 +49,24 @@ public class RecetaController implements Serializable {
     private Date fechaDesde  = new java.util.Date(1,1,1);
     private Date fechaHasta = new java.util.Date(200,01,01);;
     private int tipoBusqueda;
+    private String todautorBuscado = "SI";
+    private String todingredienteBuscado = "SI";
+
+    public String getTodingredienteBuscado() {
+        return todingredienteBuscado;
+    }
+
+    public void setTodingredienteBuscado(String todingredienteBuscado) {
+        this.todingredienteBuscado = todingredienteBuscado;
+    }
+     
+    public String getTodautorBuscado() {
+        return todautorBuscado;
+    }
+
+    public void setTodautorBuscado(String todautorBuscado) {
+        this.todautorBuscado = todautorBuscado;
+    }
     
     public Receta getRecetaSeleccionada() {
         return recetaSeleccionada;
@@ -172,7 +190,7 @@ public class RecetaController implements Serializable {
     }
     
      public String buscarRecetas() {        
-        this.listaRecetas=this.recetaSrv.busquedaAvanzada(autorBuscado, ingredienteBuscado, precioMinimo, precioMaximo, fechaDesde, fechaHasta);
+        this.listaRecetas=this.recetaSrv.busquedaAvanzada(autorBuscado, ingredienteBuscado, precioMinimo, precioMaximo, fechaDesde, fechaHasta,todautorBuscado,todingredienteBuscado);
         return null;
     }
     
