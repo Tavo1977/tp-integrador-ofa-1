@@ -173,7 +173,7 @@ public class RecetaController implements Serializable {
     
      public String buscarRecetas() {        
         this.listaRecetas=this.recetaSrv.busquedaAvanzada(autorBuscado, ingredienteBuscado, precioMinimo, precioMaximo, fechaDesde, fechaHasta);
-        return "buscarReceta";
+        return null;
     }
     
 }
