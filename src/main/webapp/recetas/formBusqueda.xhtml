@@ -44,20 +44,15 @@
                 <p:selectOneMenu id="autor" value="#{recetaController.autorBuscado}" panelStyle="width:220px"
                                  effect="fade" style="width:200px" converter="autorConverter">                    
                      <f:selectItems value="#{autorController.listaAutores}" var="unAutor" itemLabel="#{unAutor.nombre}" itemValue="#{unAutor}" />
-                </p:selectOneMenu>                
-            </div>
-            
-            <div class="p-col-12" >
-                <p:outputLabel for="todautor" value="Filtra Autor:" />
-            </div>
-            <div class="p-col-12" >
+                </p:selectOneMenu>   
+                
                 <p:selectOneMenu id="todautor" value="#{recetaController.todautorBuscado}" panelStyle="width:220px"
                                  effect="fade" style="width:200px" >                    
-                    <f:selectItem itemValue="SI" itemLabel="SI" />
-                    <f:selectItem itemValue="NO" itemLabel="NO" />
-                </p:selectOneMenu>                
+                    <f:selectItem itemValue="SI" itemLabel="Filtra Autor SI" />
+                    <f:selectItem itemValue="NO" itemLabel="Filtra Autor NO" />
+                </p:selectOneMenu>   
+                
             </div>
-            
             
             <div class="p-col-12" >
                 <p:outputLabel for="ingredientes1" value="Ingredientes:" />
@@ -66,20 +61,14 @@
                 <p:selectOneMenu id="ingredientes1" value="#{recetaController.ingredienteBuscado}" panelStyle="width:220px"
                                  effect="fade" style="width:200px" converter="ingredienteConverter">
                     <f:selectItems value="#{ingredienteController.listaIngredientes}" var="unIngrediente" itemLabel="#{unIngrediente.descripcion}" itemValue="#{unIngrediente}" />
-                </p:selectOneMenu>                
-            </div>
-                           
-             <div class="p-col-12" >
-                <p:outputLabel for="toing" value="Filtra Ingredientes:" />
-            </div>
-            <div class="p-col-12" >
+                </p:selectOneMenu>    
+                
                 <p:selectOneMenu id="toing" value="#{recetaController.todingredienteBuscado}" panelStyle="width:220px"
                                  effect="fade" style="width:200px" >                    
-                    <f:selectItem itemValue="SI" itemLabel="SI" />
-                    <f:selectItem itemValue="NO" itemLabel="NO" />
-                </p:selectOneMenu>                
-            </div>
-            
+                    <f:selectItem itemValue="SI" itemLabel="Filtra Ingrediente SI" />
+                    <f:selectItem itemValue="NO" itemLabel="Filtra Ingrediente NO" />
+                </p:selectOneMenu>                  
+            </div>  
             
             <div class="p-col-12" >
                 <p:commandButton value="Buscar" action="#{recetaController.buscarRecetas}" update="frmListaRecetas2"></p:commandButton>
