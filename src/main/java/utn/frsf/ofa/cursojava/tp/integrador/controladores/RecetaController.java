@@ -112,12 +112,23 @@ public class RecetaController implements Serializable {
         Receta tmp = this.recetaSrv.guardar(recetaSeleccionada);
         this.listaRecetas.add(tmp);        
         this.recetaSeleccionada = null;
+        
+        //para dar de alt amas de una seguida qu eblanquee el recuadro de seleccion no funciona tira errores de monto ingredientes supera el maximo
+        //List<Ingrediente> origen = ingredienteSrv.listar();
+        //List<Ingrediente> destino = new ArrayList<Ingrediente>();
+        //this.ingredientesDisponibles = new DualListModel<>(origen, destino);
+        
         return null;
     }
 
     public String nuevo() {
         this.recetaSeleccionada = new Receta();
         this.recetaSeleccionada.setIngredientes(new ArrayList<>());
+        //para dar de alt amas de una seguida qu eblanquee el recuadro , el codigo no lo hace bien y solo puedo seleccionar ing no seleccionados en el anterior
+        List<Ingrediente> origen = ingredienteSrv.listar();
+        List<Ingrediente> destino = new ArrayList<Ingrediente>();
+        this.ingredientesDisponibles = new DualListModel<>(origen, destino);
+        
         this.ingredientesDisponibles.setTarget(new ArrayList<Ingrediente>());
         return null;
     }

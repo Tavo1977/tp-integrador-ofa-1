@@ -19,7 +19,7 @@ public class ValoresProducer implements Serializable{
     
     private  Integer cantidadIngedientesMax = 5;
 
-    private  Integer cantidadrRecetasMax = 3;
+    private  Integer cantidadrRecetasMax = 7;// 3 es poco y molest ael testing
     
     @Produces @CantidadIngredientesMax    
     public Integer getCantidadIngedientesMax() {

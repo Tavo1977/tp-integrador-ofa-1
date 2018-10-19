@@ -87,6 +87,11 @@ public class PedidoController implements Serializable {
     public String nuevo() {
         this.pedidoSeleccionada = new Pedido();
         this.pedidoSeleccionada.setRecetas(new ArrayList<>());
+        
+        List<Receta> origen = recetaSrv.listar();
+        List<Receta> destino = new ArrayList<Receta>();
+        this.recetasDisponibles = new DualListModel<>(origen, destino); 
+        
         this.recetasDisponibles.setTarget(new ArrayList<Receta>());
         return null;
     }
